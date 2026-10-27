@@ -5,10 +5,13 @@
   "description": "Read-only dashboard for the four-channel lake monitoring prototype (pH, water temperature, TDS/EC, water level).",
   "type": "module",
   "engines": {
-    "node": ">=20"
+    "node": ">=22.9"
   },
   "scripts": {
-    "start": "node dashboard/serve.mjs",
+    "start": "node --env-file-if-exists=.env dashboard/serve.mjs",
     "test": "node --test"
+  },
+  "dependencies": {
+    "pg": "^8.23.1"
   }
 }

@@ -1,5 +1,5 @@
 {
-  "apiBase": null,
+  "apiBase": "/api",
   "loginPath": null,
   "refreshSeconds": 60,
   "requestTimeoutSeconds": 15,

@@ -62,6 +62,11 @@ const server = createServer(async (req, res) => {
   } catch {
     return send(res, 400, 'Bad request');
   }
+  if (pathname === '/api/snapshot') {
+    // Local stand-in for the Vercel function; needs DATABASE_URL (see .env.example).
+    const { default: snapshot } = await import('../api/snapshot.js');
+    return snapshot(req, res);
+  }
   if (pathname === '/') pathname = '/index.html';
   const file = normalize(join(ROOT, pathname));
   if (!file.startsWith(ROOT + sep) || pathname.split('/').some((part) => part.startsWith('.'))) return send(res, 403, 'Forbidden');
