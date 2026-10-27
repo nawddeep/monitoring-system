@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light dark">
+  <title>Lake Prototype Monitor</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="css/app.css">
+  <script type="module" src="js/app.js"></script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Skip to content</a>
+  <header class="app-header">
+    <div class="brand">
+      <span class="brand-mark" aria-hidden="true"></span>
+      <div>
+        <p class="brand-name">Lake prototype monitor</p>
+        <p class="brand-sub">pH · water temperature · EC/TDS · water level</p>
+      </div>
+    </div>
+    <div class="status" id="status" aria-live="polite"></div>
+  </header>
+  <nav class="app-nav" aria-label="Pages"><ul id="nav"></ul></nav>
+  <div class="rangebar" id="rangebar" hidden></div>
+  <div class="wrap" id="global-banner"></div>
+  <main id="main" class="wrap" tabindex="-1">
+    <p class="muted">Loading…</p>
+  </main>
+  <footer class="app-footer wrap">
+    <p>Four-sensor engineering prototype. Values without a calibration record are shown with their flags. Unknown means no datasheet or calibration evidence is loaded.</p>
+  </footer>
+  <dialog id="src-dialog" aria-labelledby="src-title">
+    <div class="dialog-head">
+      <h2 id="src-title">Source row</h2>
+      <button type="button" class="btn-ghost" data-action="close-dialog" aria-label="Close">✕</button>
+    </div>
+    <div id="src-body"></div>
+  </dialog>
+  <noscript><p class="wrap">This dashboard needs JavaScript enabled.</p></noscript>
+</body>
+</html>

@@ -1,0 +1,14 @@
+{
+  "name": "monitoring-system",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Read-only dashboard for the four-channel lake monitoring prototype (pH, water temperature, TDS/EC, water level).",
+  "type": "module",
+  "engines": {
+    "node": ">=20"
+  },
+  "scripts": {
+    "start": "node dashboard/serve.mjs",
+    "test": "node --test"
+  }
+}

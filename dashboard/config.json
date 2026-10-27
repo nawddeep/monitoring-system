@@ -1,0 +1,11 @@
+{
+  "apiBase": "http://10.100.205.12:5000",
+  "loginPath": null,
+  "refreshSeconds": 60,
+  "requestTimeoutSeconds": 15,
+  "timezone": "Asia/Kolkata",
+  "timezoneLabel": "IST",
+  "samplingMinutes": 10,
+  "gapFactor": 2.5,
+  "defaultRange": "7d"
+}
