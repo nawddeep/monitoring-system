@@ -14,7 +14,7 @@ docker compose up -d && npm start    # PostgreSQL on :5432, dashboard on http://
 
 `docker compose up` creates the schema from `db/init/` on first start only. To rebuild from scratch: `docker compose down -v`.
 
-The dashboard reads `GET /api/snapshot`, served by `api/snapshot.js` (locally by `npm start`, on Vercel as a function). It uses `DATABASE_URL` from `.env`, which points at local Postgres by default. A fresh local database has no readings, so the pages show empty states until sensor data is written. `apiBase` in `dashboard/config.json` is `/api`; never put credentials in that file.
+The dashboard reads `GET /api/snapshot`, served by `api/snapshot.js` (locally by `npm start`, on Vercel as a function). It uses `DASHBOARD_DATABASE_URL` from `.env`, which points at local Postgres by default. A fresh local database has no readings, so the pages show empty states until sensor data is written. `apiBase` in `dashboard/config.json` is `/api`; never put credentials in that file.
 
 ## Databases
 
@@ -28,7 +28,7 @@ The dashboard reads `GET /api/snapshot`, served by `api/snapshot.js` (locally by
 ## Deploy to Vercel (live data from Neon)
 
 1. Run [db/neon-readonly-role.sql](db/neon-readonly-role.sql) once on Neon (SELECT-only login `dashboard_ro`).
-2. Import this repo in Vercel. Set `DATABASE_URL` to Neon's pooled URL for that role. Region is `sin1` in `vercel.json`, next to Neon in Singapore.
+2. Import this repo in Vercel. Set `DASHBOARD_DATABASE_URL` to Neon's pooled URL for that role (not `DATABASE_URL`: the Neon integration sets that to the owner login). Region is `sin1` in `vercel.json`, next to Neon in Singapore.
 3. Sensors write to Neon through the bridge in the main app repo; this repo only reads.
 
 The API has no login: anyone with the URL can read the sensor snapshot. Add authentication before sharing the URL widely.

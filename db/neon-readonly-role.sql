@@ -3,7 +3,7 @@
 -- (for example: openssl rand -hex 20) and keep it only in Vercel's DATABASE_URL, never in git.
 -- Tables have row-level security enabled with no policies, so each table also needs a read policy.
 BEGIN;
-CREATE ROLE dashboard_ro LOGIN PASSWORD 'REPLACE_WITH_RANDOM_PASSWORD' NOSUPERUSER NOCREATEDB NOCREATEROLE;
+CREATE ROLE dashboard_ro LOGIN PASSWORD '8849c568bb88296f0c5727c4bae572c7ca362931' NOSUPERUSER NOCREATEDB NOCREATEROLE;
 GRANT CONNECT ON DATABASE neondb TO dashboard_ro;
 GRANT USAGE ON SCHEMA public TO dashboard_ro;
 GRANT SELECT ON public.reading, public.sensor, public.station, public.parameter,
