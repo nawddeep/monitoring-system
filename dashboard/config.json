@@ -1,5 +1,5 @@
 {
-  "apiBase": "http://10.100.205.12:5000",
+  "apiBase": null,
   "loginPath": null,
   "refreshSeconds": 60,
   "requestTimeoutSeconds": 15,
